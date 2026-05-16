@@ -12,6 +12,6 @@ public class StreamerPage {
     }
 
     public void selectFirstStreamer() {
-        driver.findElement(By.xpath("(//a[contains(@href,'/videos')])[1]")).click();
+        driver.findElement(By.xpath("//div[@data-target='directory-first-item']")).click();
     }
 }

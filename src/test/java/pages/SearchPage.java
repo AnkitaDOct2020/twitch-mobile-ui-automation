@@ -8,7 +8,7 @@ public class SearchPage {
 
     WebDriver driver;
 
-    By searchInput = By.xpath("//input[@type='search']");
+    By searchIcon = By.xpath("//input[@aria-label='Search Input']");
 
     public SearchPage(WebDriver driver) {
         this.driver = driver;
