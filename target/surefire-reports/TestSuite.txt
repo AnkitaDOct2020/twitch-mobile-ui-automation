@@ -1,15 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 1, Errors: 0, Skipped: 2, Time elapsed: 4.175 s <<< FAILURE! -- in TestSuite
-tests.TwitchTest.setup -- Time elapsed: 3.988 s <<< FAILURE!
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 2, Time elapsed: 3.713 s <<< FAILURE! -- in TestSuite
+tests.TwitchTest.setup -- Time elapsed: 3.569 s <<< FAILURE!
 org.openqa.selenium.SessionNotCreatedException: 
-Could not start a new session. Response code 500. Message: session not created: Chrome instance exited. Examine ChromeDriver verbose log to determine the cause. 
+Could not start a new session. Response code 500. Message: session not created
+from unknown error: no chrome binary at /usr/bin/google-chrome 
 Host info: host: 'codespaces-ecc9a3', ip: '127.0.0.1'
 Build info: version: '4.21.0', revision: '79ed462ef4'
 System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.8.0-1044-azure', java.version: '25.0.2'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [--no-sandbox, --disable-dev-shm-usage, --remote-allow-origins=*], binary: /usr/bin/chromium-browser, extensions: []}}]}]
+Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [--no-sandbox, --disable-dev-shm-usage, --disable-gpu, --remote-allow-origins=*], binary: /usr/bin/google-chrome, extensions: []}}]}]
 	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:114)
 	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:75)
 	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:61)
@@ -23,7 +24,7 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:88)
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:83)
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:72)
-	at base.BaseTest.setup(BaseTest.java:29)
+	at base.BaseTest.setup(BaseTest.java:31)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
