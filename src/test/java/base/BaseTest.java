@@ -16,16 +16,18 @@ public class BaseTest {
     @BeforeMethod
     public void setup() {
 
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().clearDriverCache().setup();
 
         ChromeOptions options = new ChromeOptions();
 
-        options.setBinary("/usr/bin/chromium-browser");
-
+        options.setBinary("/usr/bin/google-chrome");
+        
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-gpu");
         options.addArguments("--remote-allow-origins=*");
 
+        // IMPORTANT: DO NOT rely on system chromedriver anymore
         driver = new ChromeDriver(options);
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
