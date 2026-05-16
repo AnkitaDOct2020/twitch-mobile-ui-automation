@@ -41,7 +41,7 @@ public class TwitchTest extends BaseTest {
         streamer.selectFirstStreamer();
         Thread.sleep(5000);
         
-        streamer.dismissModalIfPresent();
+        dismissModalIfPresent();
         Thread.sleep(2000);
         
         // Step 5: Screenshot

@@ -15,11 +15,14 @@ public class BaseTest {
 
     @BeforeMethod
     public void setup() {
-
+        Map<String, Object> mobileEmulation = new HashMap<>();
+        mobileEmulation.put("deviceName", "iPhone 12 Pro");
+        
+        
         WebDriverManager.chromedriver().clearDriverCache().setup();
 
         ChromeOptions options = new ChromeOptions();
-
+        options.setExperimentalOption("mobileEmulation", mobileEmulation);
         options.setBinary("/usr/bin/google-chrome");
         
         options.addArguments("--no-sandbox");
@@ -39,4 +42,28 @@ public class BaseTest {
             driver.quit();
         }
     }
+ public void dismissModalIfPresent() {
+        String[] closeSelectors = {
+            "[data-a-target='modal-close-button']",
+            "button[aria-label='Close']",
+            "[data-a-target='player-overlay-mature-accept']",
+            "[data-a-target='content-classification-gate-overlay-start-watching-button']"
+        };
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
+        for (String selector : closeSelectors) {
+            try {
+                WebElement btn = wait.until(
+                    ExpectedConditions.elementToBeClickable(By.cssSelector(selector))
+                );
+                btn.click();
+                System.out.println("Modal dismissed: " + selector);
+                break;
+            } catch (TimeoutException | NoSuchElementException e) {
+                // No modal with this selector, try next
+            }
+        }
+    }
+    
 }
