@@ -40,7 +40,10 @@ public class TwitchTest extends BaseTest {
         // Step 4: Select streamer
         streamer.selectFirstStreamer();
         Thread.sleep(5000);
-
+        
+        streamer.dismissModalIfPresent();
+        Thread.sleep(2000);
+        
         // Step 5: Screenshot
         ScreenshotUtils.capture(driver, "streamer_page_loaded");
     }
