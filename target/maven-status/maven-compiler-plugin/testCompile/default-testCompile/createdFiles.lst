@@ -1,0 +1,7 @@
+utils/ScreenshotUtils.class
+utils/ScrollUtils.class
+pages/HomePage.class
+pages/StreamerPage.class
+tests/TwitchTest.class
+base/BaseTest.class
+pages/SearchPage.class

@@ -1,0 +1,7 @@
+/workspaces/twitch-mobile-ui-automation/src/test/java/base/BaseTest.java
+/workspaces/twitch-mobile-ui-automation/src/test/java/pages/HomePage.java
+/workspaces/twitch-mobile-ui-automation/src/test/java/pages/SearchPage.java
+/workspaces/twitch-mobile-ui-automation/src/test/java/pages/StreamerPage.java
+/workspaces/twitch-mobile-ui-automation/src/test/java/tests/TwitchTest.java
+/workspaces/twitch-mobile-ui-automation/src/test/java/utils/ScreenshotUtils.java
+/workspaces/twitch-mobile-ui-automation/src/test/java/utils/ScrollUtils.java
