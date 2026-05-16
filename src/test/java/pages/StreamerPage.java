@@ -12,6 +12,6 @@ public class StreamerPage {
     }
 
     public void selectFirstStreamer() {
-        driver.findElement(By.xpath("//div[@data-target='directory-first-item']")).click();
+        driver.findElement(By.xpath("(//div[@data-a-target='search-result-live-channel'])[1]")).click();
     }
 }
