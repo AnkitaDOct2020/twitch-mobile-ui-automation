@@ -40,6 +40,8 @@ public class TwitchTest extends BaseTest {
          // Handle any modal or pop-up before video loads (mature content, age gate etc.)
         dismissModalIfPresent();
 
+        streamer.waitForPageToLoad(); 
+        
         // Step 6: Take screenshot once page is fully loaded
         ScreenshotUtils.capture(driver, "streamer_page_loaded");
     }
