@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-05-17T12:10:44 UTC" name="Surefire suite" finished-at="2026-05-17T12:11:53 UTC" duration-ms="69124">
+  <suite started-at="2026-05-17T15:10:16 UTC" name="Surefire suite" finished-at="2026-05-17T15:10:44 UTC" duration-ms="28021">
     <groups>
     </groups>
-    <test started-at="2026-05-17T12:10:44 UTC" name="Surefire test" finished-at="2026-05-17T12:11:53 UTC" duration-ms="69124">
+    <test started-at="2026-05-17T15:10:16 UTC" name="Surefire test" finished-at="2026-05-17T15:10:44 UTC" duration-ms="28021">
       <class name="tests.TwitchTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:tests.TwitchTest@646be2c3]" started-at="2026-05-17T12:10:44 UTC" name="setup" finished-at="2026-05-17T12:10:47 UTC" duration-ms="2882" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:tests.TwitchTest@3c0a50da]" started-at="2026-05-17T15:10:16 UTC" name="setup" finished-at="2026-05-17T15:10:19 UTC" duration-ms="3771" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="twitchStreamerFlowTest()[pri:0, instance:tests.TwitchTest@646be2c3]" started-at="2026-05-17T12:10:47 UTC" name="twitchStreamerFlowTest" finished-at="2026-05-17T12:11:53 UTC" duration-ms="66134" status="PASS">
+        <test-method signature="twitchStreamerFlowTest()[pri:0, instance:tests.TwitchTest@3c0a50da]" started-at="2026-05-17T15:10:19 UTC" name="twitchStreamerFlowTest" finished-at="2026-05-17T15:10:44 UTC" duration-ms="24221" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- twitchStreamerFlowTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.TwitchTest@646be2c3]" started-at="2026-05-17T12:11:53 UTC" name="tearDown" finished-at="2026-05-17T12:11:53 UTC" duration-ms="86" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.TwitchTest@3c0a50da]" started-at="2026-05-17T15:10:44 UTC" name="tearDown" finished-at="2026-05-17T15:10:44 UTC" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
