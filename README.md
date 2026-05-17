@@ -1,7 +1,12 @@
 # twitch-mobile-ui-automation
 Selenium-based UI automation framework for Twitch, running in Chrome with iPhone 12 Pro mobile emulation.
 
-## Test Execution
+## Test Execution - 
+<img width="1280" height="670" alt="TwitchTest" src="https://github.com/user-attachments/assets/027a1349-1bcb-4580-97c4-9bfdec0daf0c" />
+
+
+
+
 ## Test Case
 | Step | Description |
 |------|-------------|
