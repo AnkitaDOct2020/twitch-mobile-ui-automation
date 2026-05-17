@@ -70,18 +70,14 @@ public class BaseTest {
             }
         }
     }
+    
     public void dismissOpenAppBannerIfPresent() {
     try {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         
         // Common selectors for the "Open App" banner close/dismiss button
         String[] bannerSelectors = {
-            "[data-a-target='dismiss-button']",
-            "button[aria-label='Dismiss']",
-            "[data-a-target='mobile-continue-in-browser']",  // "Continue in browser" link
-            "a[data-a-target*='browser']",
-            "//*[contains(text(),'Continue in browser')]",   // text-based
-            "//*[contains(text(),'Not now')]"
+            "[//div[text()='Open App']]"
         };
 
         for (String selector : bannerSelectors) {
@@ -106,7 +102,6 @@ public class BaseTest {
         }
     } catch (Exception e) {
         System.out.println("No Open App banner found, continuing...");
+        }
     }
-}
-    
 }

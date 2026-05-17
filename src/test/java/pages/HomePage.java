@@ -21,9 +21,4 @@ public class HomePage {
     public void clickSearchIcon() {
         driver.findElement(searchIcon).click();
     }
-
-    public void clickOpenApp(){
-        driver.findElement(openApp).click();
-    }
-
 }
