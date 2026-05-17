@@ -10,15 +10,16 @@ import java.time.Duration;
 
 public class SearchPage {
 
-    WebDriver driver;
-    By searchInput = By.xpath("//input[@type='search']");
+    private final WebDriver driver;
+    private final WebDriverWait wait;
+    private final By searchInput = By.xpath("//input[@type='search']");
 
     public SearchPage(WebDriver driver) {
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
+    
     public void search(String text) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
         // Find fresh each time to avoid stale reference
         WebElement input = wait.until(
             ExpectedConditions.elementToBeClickable(searchInput)
@@ -30,11 +31,14 @@ public class SearchPage {
 
         // Re-find element before sending ESCAPE
         try {
-            Thread.sleep(1000);
             driver.findElement(searchInput).sendKeys(Keys.ESCAPE);
         } catch (Exception e) {
             // Input may have disappeared after Enter, that's fine
             System.out.println("Search input gone after Enter, continuing...");
         }
+        // Wait for search results to load
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+            By.xpath("//h2[text()='Channels']")
+        ));
     }
 }
