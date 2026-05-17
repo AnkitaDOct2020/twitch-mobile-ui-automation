@@ -12,41 +12,35 @@ import utils.ScreenshotUtils;
 public class TwitchTest extends BaseTest {
 
     @Test
-    public void twitchStreamerFlowTest() throws InterruptedException {
+    public void twitchStreamerFlowTest() {
 
         HomePage home = new HomePage(driver);
         SearchPage search = new SearchPage(driver);
         StreamerPage streamer = new StreamerPage(driver);
 
-        // Step 1: Open Twitch
+        // Step 1: Open Twitch in mobile view
         home.openTwitch();
-        Thread.sleep(4000);
 
-        // Step 2: Search
+        // Step 2: Navigate to search via Browse
         home.clickSearchIcon();
-        Thread.sleep(2000);
 
+        // Step 3: Search for StarCraft II
         search.search("StarCraft II");
-        Thread.sleep(4000);
 
+        // Navigate to live channels list
         home.clickViewAll();
-        Thread.sleep(2000);
         
-        // Step 3: Scroll
+        // Step 4: Scroll down 2 times within live channels
         ScrollUtils.scrollDown(driver);
-        Thread.sleep(2000);
-
         ScrollUtils.scrollDown(driver);
-        Thread.sleep(2000);
 
-        // Step 4: Select streamer
+        // Step 5: Select first available streamer
         streamer.selectFirstStreamer();
-        Thread.sleep(5000);
-        
+       
+         // Handle any modal or pop-up before video loads (mature content, age gate etc.)
         dismissModalIfPresent();
-        Thread.sleep(2000);
-        
-        // Step 5: Screenshot
+
+        // Step 6: Take screenshot once page is fully loaded
         ScreenshotUtils.capture(driver, "streamer_page_loaded");
     }
 }
