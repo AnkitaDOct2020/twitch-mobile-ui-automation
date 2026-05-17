@@ -24,19 +24,18 @@ public class BaseTest {
     public void setup() {
         Map<String, Object> mobileEmulation = new HashMap<>();
         mobileEmulation.put("deviceName", "iPhone 12 Pro");
-              
+        
         WebDriverManager.chromedriver().clearDriverCache().setup();
 
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("mobileEmulation", mobileEmulation);
+       
         options.setBinary("/usr/bin/google-chrome");
         
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-gpu");
         options.addArguments("--remote-allow-origins=*");
-
-        // IMPORTANT: DO NOT rely on system chromedriver anymore
         driver = new ChromeDriver(options);
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -68,20 +67,6 @@ public class BaseTest {
             } catch (TimeoutException | NoSuchElementException e) {
                 // No modal with this selector, try next
             }
-        }
-    }
-    
-    public void clickOpenAppIfPresent() {
-    try {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        WebElement openAppBtn = wait.until(ExpectedConditions.elementToBeClickable(
-            By.xpath("//div[@data-a-target='tw-core-button-label-text' and text()='Open App']")
-        ));
-        openAppBtn.click();
-        System.out.println("Clicked Open App button");
-        Thread.sleep(2000);
-    } catch (TimeoutException | NoSuchElementException | InterruptedException e) {
-        System.out.println("No Open App button found, continuing...");
         }
     }
 }
