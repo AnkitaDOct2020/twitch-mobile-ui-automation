@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class ScrollUtils {
 
     private static final int SCROLL_AMOUNT = 600;
-    private static final int SCROLL_PAUSE_MS = 1000;
+    private static final int SCROLL_PAUSE_MS = 500;
     
     public static void scrollDown(WebDriver driver) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
