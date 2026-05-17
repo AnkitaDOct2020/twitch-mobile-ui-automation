@@ -28,7 +28,7 @@ public class BaseTest {
         WebDriverManager.chromedriver().clearDriverCache().setup();
 
         ChromeOptions options = new ChromeOptions();
-        options.setExperimentalOption("mobileEmulation", mobileEmulation);
+        //options.setExperimentalOption("mobileEmulation", mobileEmulation);
         options.setBinary("/usr/bin/google-chrome");
         
         options.addArguments("--no-sandbox");
