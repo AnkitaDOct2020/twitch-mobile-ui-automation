@@ -13,12 +13,16 @@ public class StreamerPage {
     private final WebDriver driver;
     private final WebDriverWait wait;
 
-    public StreamerPage(WebDriver driver) {
-        this.driver = driver;
-    }
-
     // First live channel card in search results
     private final By firstStreamer = By.xpath("(//img[@class='tw-image'])[1]/parent::div");
+
+     // Video player element - confirms streamer page has loaded
+    private final By videoPlayer = By.xpath("//video");
+
+    public StreamerPage(WebDriver driver) {
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+    }
 
     public void selectFirstStreamer() {
         WebElement streamer = wait.until(

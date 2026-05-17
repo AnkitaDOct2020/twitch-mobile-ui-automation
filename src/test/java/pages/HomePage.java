@@ -27,7 +27,7 @@ public class HomePage {
     }
 
     public void clickSearchIcon() {
-        dwait.until(ExpectedConditions.elementToBeClickable(browseIcon)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(browseIcon)).click();
     }
     public void clickViewAll() {
         wait.until(ExpectedConditions.elementToBeClickable(viewAllChannels)).click();
