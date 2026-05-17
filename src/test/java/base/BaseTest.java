@@ -71,37 +71,17 @@ public class BaseTest {
         }
     }
     
-    public void dismissOpenAppBannerIfPresent() {
+    public void clickOpenAppIfPresent() {
     try {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        
-        // Common selectors for the "Open App" banner close/dismiss button
-        String[] bannerSelectors = {
-            "[//div[text()='Open App']]"
-        };
-
-        for (String selector : bannerSelectors) {
-            try {
-                WebElement btn;
-                if (selector.startsWith("//") || selector.startsWith("//*")) {
-                    btn = wait.until(ExpectedConditions.elementToBeClickable(
-                        By.xpath(selector)
-                    ));
-                } else {
-                    btn = wait.until(ExpectedConditions.elementToBeClickable(
-                        By.cssSelector(selector)
-                    ));
-                }
-                btn.click();
-                System.out.println("Banner dismissed: " + selector);
-                Thread.sleep(2000);
-                break;
-            } catch (TimeoutException | NoSuchElementException | InterruptedException e) {
-                // Try next selector
-            }
-        }
-    } catch (Exception e) {
-        System.out.println("No Open App banner found, continuing...");
+        WebElement openAppBtn = wait.until(ExpectedConditions.elementToBeClickable(
+            By.xpath("//div[@data-a-target='tw-core-button-label-text' and text()='Open App']")
+        ));
+        openAppBtn.click();
+        System.out.println("Clicked Open App button");
+        Thread.sleep(2000);
+    } catch (TimeoutException | NoSuchElementException | InterruptedException e) {
+        System.out.println("No Open App button found, continuing...");
         }
     }
 }

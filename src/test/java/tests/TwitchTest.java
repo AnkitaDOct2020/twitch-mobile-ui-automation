@@ -21,8 +21,10 @@ public class TwitchTest extends BaseTest {
         // Step 1: Open Twitch
         home.openTwitch();
         Thread.sleep(4000);
-        dismissOpenAppBannerIfPresent(); // ← ADD THIS before anything else
+
+        clickOpenAppIfPresent();  
         Thread.sleep(2000);
+
         // Step 2: Search
         home.clickSearchIcon();
         Thread.sleep(2000);
