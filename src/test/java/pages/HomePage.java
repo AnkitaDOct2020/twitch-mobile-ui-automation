@@ -15,7 +15,8 @@ public class HomePage {
     }
 
     public void openTwitch() {
-        driver.get("https://www.twitch.tv/");
+        //driver.get("https://www.twitch.tv/");
+        driver.get("https://m.twitch.tv");
     }
 
     public void clickSearchIcon() {
