@@ -9,6 +9,7 @@ public class HomePage {
 
     //By searchIcon = By.xpath("//input[@aria-label='Search Input']");
     By searchIcon = By.xpath("//div[text()='Browse']");
+    By viewAll = By.xpath("//h2[text()='Channels']/following-sibling::a/p");
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
@@ -20,4 +21,8 @@ public class HomePage {
     public void clickSearchIcon() {
         driver.findElement(searchIcon).click();
     }
+    public void clickViewAll() {
+        driver.findElement(viewAll).click();
+    }
+
 }
