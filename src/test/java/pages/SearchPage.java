@@ -17,6 +17,11 @@ public class SearchPage {
         this.driver = driver;
     }
 
+    public void scrollWithinLiveChannels() {
+     ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 300)");
+        try { Thread.sleep(1000); } catch (Exception e) {}
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 300)");
+}
     public void search(String text) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 

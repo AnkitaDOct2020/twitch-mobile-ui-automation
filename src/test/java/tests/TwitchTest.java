@@ -29,12 +29,16 @@ public class TwitchTest extends BaseTest {
         search.search("StarCraft II");
         Thread.sleep(4000);
 
-        // Step 3: Scroll
-        ScrollUtils.scrollDown(driver);
+        // Scroll within live channels section
+        search.scrollWithinLiveChannels();  
         Thread.sleep(2000);
 
-        ScrollUtils.scrollDown(driver);
-        Thread.sleep(2000);
+        // // Step 3: Scroll
+        // ScrollUtils.scrollDown(driver);
+        // Thread.sleep(2000);
+
+        // ScrollUtils.scrollDown(driver);
+        // Thread.sleep(2000);
 
         // Step 4: Select streamer
         streamer.selectFirstStreamer();
