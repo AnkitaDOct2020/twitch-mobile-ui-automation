@@ -24,7 +24,7 @@ public class BaseTest {
     public void setup() {
         Map<String, Object> mobileEmulation = new HashMap<>();
         mobileEmulation.put("deviceName", "iPhone 12 Pro");
-                
+              
         WebDriverManager.chromedriver().clearDriverCache().setup();
 
         ChromeOptions options = new ChromeOptions();
@@ -49,14 +49,13 @@ public class BaseTest {
         }
     }
  public void dismissModalIfPresent() {
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         String[] closeSelectors = {
             "[data-a-target='modal-close-button']",
             "button[aria-label='Close']",
             "[data-a-target='player-overlay-mature-accept']",
             "[data-a-target='content-classification-gate-overlay-start-watching-button']"
         };
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         for (String selector : closeSelectors) {
             try {
@@ -71,5 +70,43 @@ public class BaseTest {
             }
         }
     }
+    public void dismissOpenAppBannerIfPresent() {
+    try {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        
+        // Common selectors for the "Open App" banner close/dismiss button
+        String[] bannerSelectors = {
+            "[data-a-target='dismiss-button']",
+            "button[aria-label='Dismiss']",
+            "[data-a-target='mobile-continue-in-browser']",  // "Continue in browser" link
+            "a[data-a-target*='browser']",
+            "//*[contains(text(),'Continue in browser')]",   // text-based
+            "//*[contains(text(),'Not now')]"
+        };
+
+        for (String selector : bannerSelectors) {
+            try {
+                WebElement btn;
+                if (selector.startsWith("//") || selector.startsWith("//*")) {
+                    btn = wait.until(ExpectedConditions.elementToBeClickable(
+                        By.xpath(selector)
+                    ));
+                } else {
+                    btn = wait.until(ExpectedConditions.elementToBeClickable(
+                        By.cssSelector(selector)
+                    ));
+                }
+                btn.click();
+                System.out.println("Banner dismissed: " + selector);
+                Thread.sleep(2000);
+                break;
+            } catch (TimeoutException | NoSuchElementException | InterruptedException e) {
+                // Try next selector
+            }
+        }
+    } catch (Exception e) {
+        System.out.println("No Open App banner found, continuing...");
+    }
+}
     
 }

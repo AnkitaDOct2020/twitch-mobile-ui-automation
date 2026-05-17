@@ -8,6 +8,7 @@ public class HomePage {
     WebDriver driver;
 
     By searchIcon = By.xpath("//input[@aria-label='Search Input']");
+    By openApp = By.xpath("//div[text()='Open App']");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -20,4 +21,9 @@ public class HomePage {
     public void clickSearchIcon() {
         driver.findElement(searchIcon).click();
     }
+
+    public void clickOpenApp(){
+        driver.findElement(openApp).click();
+    }
+
 }
