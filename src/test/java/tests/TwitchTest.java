@@ -42,7 +42,7 @@ public class TwitchTest extends BaseTest {
 
         streamer.waitForPageToLoad(); 
         
-        // Step 6: Take screenshot once page is fully loaded
+        // Step 6: // Take screenshot immediately
         ScreenshotUtils.capture(driver, "streamer_page_loaded");
     }
 }

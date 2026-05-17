@@ -33,7 +33,7 @@ public class StreamerPage {
     }
 
     public void waitForPageToLoad() {
-        // Wait for video player to confirm streamer page is fully loaded
-        wait.until(ExpectedConditions.presenceOfElementLocated(videoPlayer));
+        WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        shortWait.until(ExpectedConditions.presenceOfElementLocated(videoPlayer));
     }
 }
