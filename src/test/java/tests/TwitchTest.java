@@ -44,5 +44,9 @@ public class TwitchTest extends BaseTest {
         
         // Step 6: // Take screenshot immediately
         ScreenshotUtils.capture(driver, "streamer_page_loaded");
+
+        // Quit immediately - don't wait for @AfterMethod
+        driver.quit();
+        driver = null; // prevent @AfterMethod from quitting again
     }
 }

@@ -39,7 +39,7 @@ public class BaseTest {
 
         WebDriverManager.chromedriver().clearDriverCache().setup();
         driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @AfterMethod

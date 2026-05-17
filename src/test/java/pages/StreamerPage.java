@@ -33,7 +33,7 @@ public class StreamerPage {
     }
 
     public void waitForPageToLoad() {
-        WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait shortWait = new WebDriverWait(driver, Duration.ofSeconds(5));
         shortWait.until(ExpectedConditions.presenceOfElementLocated(videoPlayer));
     }
 }
