@@ -1,28 +1,36 @@
 package pages;
-
+ 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 public class HomePage {
 
-    WebDriver driver;
+    private final WebDriver driver;
+    private final WebDriverWait wait;
 
-    //By searchIcon = By.xpath("//input[@aria-label='Search Input']");
-    By searchIcon = By.xpath("//div[text()='Browse']");
-    By viewAll = By.xpath("//h2[text()='Channels']/following-sibling::a/p");
+    // Mobile view uses Browse (bottom nav) as entry point to search
+    private final By browseIcon = By.xpath("//div[text()='Browse']");
+    private final By viewAllChannels = By.xpath("//h2[text()='Channels']/following-sibling::a/p");
+    
     public HomePage(WebDriver driver) {
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
     public void openTwitch() {
         driver.get("https://www.twitch.tv/");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(browseIcon));
     }
 
     public void clickSearchIcon() {
-        driver.findElement(searchIcon).click();
+        dwait.until(ExpectedConditions.elementToBeClickable(browseIcon)).click();
     }
     public void clickViewAll() {
-        driver.findElement(viewAll).click();
+        wait.until(ExpectedConditions.elementToBeClickable(viewAllChannels)).click();
     }
 
 }
